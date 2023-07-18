@@ -26,6 +26,7 @@ def find_gap_indices(df):
 
 def get_gap_times(df):
     gi = find_gap_indices(df)
+    gi.index = df.index    
     gap_times = df[gi]["dtime"] - pd.to_timedelta('1 second')
     return list(gap_times)
 
